@@ -1,16 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <!-- <dragcomp 
+     :nodes="rootData"
+      @onClick="nodeWasClicked"></dragcomp> -->
+
+<!-- <NestedDraggable></NestedDraggable> -->
+<nested></nested>
+<NestedExample></NestedExample>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import  dragcomp from './components/Draggable-Component.vue';
+
+// import NestedDraggable from './components/NestedDraggable.vue';
+
+import nested from './components/nested.vue';
+import NestedExample from './components/NestedExample.vue'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default {
+  data(){return{
+   
+  }},
+  
+  watch: {
+    root: {
+      deep: true,
+      handler:function(newRoot) {
+        console.log(newRoot);
+      },
+    },
+  },
+  methods: {
+    nodeWasClicked(node) {
+      alert(node.name);
+    },
+  },
+  
   name: 'App',
   components: {
-    HelloWorld
-  }
+   nested,NestedExample,
+    // dragcomp,
+// NestedDraggable 
+ }
 }
 </script>
 
