@@ -108,14 +108,14 @@
         <div v-if="activetab === '4'" class="tabcontent">
           <table>
             <tr>
-              <td rowspan="5">
-                <NestedExample :data=rootData></NestedExample>
+              <td class="dataRoot" rowspan="5">
+                <NestedExample :data="rootData"></NestedExample>
               </td>
             </tr>
 
             <tr>
               <td class="legend" valign="top"></td>
-              <td>
+              <td class="rightAdmincontent">
                 <div class="ms-5">
                   <h5>admin.users</h5>
                   <h5>Allowed permission definitions</h5>
@@ -167,12 +167,11 @@
   </div>
   <!-- <div ><TabberComponent v-if="TabberComponent.contents" /></div> -->
 </template>
-  
-  <script>
+
+<script>
 import NestedExample from "./NestedExample.vue";
 import datatable from "./DataTable.vue";
-import root from "@/root.json"
-
+import root from "@/root.json";
 
 export default {
   name: "AllTabs",
@@ -182,7 +181,7 @@ export default {
   },
   data() {
     return {
-       rootData:root,
+      rootData: root,
       // nodes: ["a","l"],
       activetab: "1",
       flag: 2,
@@ -202,8 +201,8 @@ export default {
   },
 };
 </script>
-  
-  <style scoped>
+
+<style scoped>
 /* Import Google Font */
 @import url(https://fonts.googleapis.com/css?family=Nunito+Sans);
 
@@ -268,6 +267,7 @@ a {
   padding: 30px 50px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  box-sizing: border-box;
   box-shadow: 4px 4px 8px #e1e1e1;
 }
 
@@ -275,10 +275,17 @@ a {
   padding: 0.3em 0.4em;
   color: #484848;
 }
+.tabcontent td.dataRoot {
+  max-width: 30rem;
+  text-align: left;
+}
 .tabcontent td.legend {
   color: #888;
   font-weight: bold;
   text-align: right;
+}
+ul[data-v-4037d787] {
+  padding-left: 0;
 }
 .tabcontent .map {
   height: 173px;
