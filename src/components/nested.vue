@@ -111,7 +111,6 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* padding-left: 0; */
 }
 li {
   display: flex;
