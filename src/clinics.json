@@ -1,10 +1,5 @@
 [
-  {
-    "name": "Northeast Arkansas"
-  },
-  {
-    "name": "Southeast Arkansas"
-  },
+  
   {
     "name": "Central Arkansas",
     "children": [
@@ -33,5 +28,11 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Northeast Arkansas"
+  },
+  {
+    "name": "Southeast Arkansas"
   }
 ]

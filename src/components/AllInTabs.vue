@@ -70,39 +70,14 @@
           </table>
         </div>
         <div v-if="activetab === '3'" class="tabcontent">
-          <table>
+            <table>
             <tr>
-              <td class="legend">Area:</td>
-              <td class="data">357,386 km<sup>2</sup></td>
               <td rowspan="5">
-                <img
-                  class="map"
-                  src="https://drive.google.com/thumbnail?id=1JQyW1aThQxnlk3ZmogomTzhDkQGKbdC1"
-                />
+                <NestedExample :data=clinicData></NestedExample>
               </td>
             </tr>
-            <tr>
-              <td class="legend">Population:</td>
-              <td class="data">83 million</td>
-            </tr>
-            <tr>
-              <td class="legend">Capital:</td>
-              <td class="data">Berlin</td>
-            </tr>
-            <tr>
-              <td class="legend">Language:</td>
-              <td class="data">German</td>
-            </tr>
-            <tr>
-              <td class="legend" valign="top">Flag:</td>
-              <td class="data">
-                <img
-                  class="flag"
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1000px-Flag_of_Germany.svg.png"
-                  width="89"
-                />
-              </td>
-            </tr>
+
+            
           </table>
         </div>
         <div v-if="activetab === '4'" class="tabcontent">
@@ -172,6 +147,7 @@
 import NestedExample from "./NestedExample.vue";
 import datatable from "./DataTable.vue";
 import root from "@/root.json"
+import clinics from "@/clinics.json" 
 
 
 export default {
@@ -186,6 +162,7 @@ export default {
       // nodes: ["a","l"],
       activetab: "1",
       flag: 2,
+      clinicData:clinics
     };
   },
   methods: {

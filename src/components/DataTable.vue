@@ -30,7 +30,23 @@
         position: 'top',
         perPageDropdown: [10, 50, 100],
       }"
-    />
+     
+    >
+    <template #table-row="props">
+    <span class="d-flex" v-if="props.column.field == 'Action'">
+      
+      <button class="icon_button">
+            <i  class="bi bi-eye-fill"></i>
+          </button>
+          <button class="icon_button">
+            <i  class="bi bi-pen-fill"></i>
+          </button>
+          <button class="icon_button">
+            <i class="bi bi-trash3-fill"></i>
+          </button>
+   </span>
+  </template>
+    </VueGoodTable>
   </div>
 </template>
     
@@ -97,6 +113,10 @@ export default {
           label: "thumbnailUrl",
           field: "thumbnailUrl",
         },
+        {
+          label: "Action",
+          field: "Action",
+        },
       ],
       //  rows:this.records
     };
@@ -109,3 +129,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.icon_button{
+  background-color: transparent;
+  border: none;
+}
+</style>
