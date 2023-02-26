@@ -1,29 +1,23 @@
 <template>
    <AllTabs></AllTabs>
-   <hr>
-  <h3>Draggable DataTree</h3>
-  <h2>permission</h2>
-  <NestedExample :data=rootData></NestedExample>
-  <h2>clinics</h2>
-  <NestedExample :data=clinicsData ></NestedExample>
-
-  <h3>Tabber</h3>
+   
+  <!-- <h3>Tabber</h3>
   <TabberComponent></TabberComponent>
   <h3>DataTable</h3>
-  <DataTable></DataTable>
+  <DataTable></DataTable> -->
  
   
 </template>
 
 <script>
-import NestedExample from "./components/NestedExample.vue";
+// import NestedExample from "./components/NestedExample.vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
-import root from "./root.json"
-import clinics from "./clinics.json" 
+// import root from "./root.json"
+// import clinics from "./clinics.json" 
 import "bootstrap-icons/font/bootstrap-icons.css";
-import TabberComponent from "./components/TabberComponent.vue";
-import DataTable from "./components/DataTable.vue";
+// import TabberComponent from "./components/TabberComponent.vue";
+// import DataTable from "./components/DataTable.vue";
 import 'vue-good-table-next/dist/vue-good-table-next.css'
 import AllTabs from "./components/AllInTabs.vue"
 
@@ -31,8 +25,8 @@ import AllTabs from "./components/AllInTabs.vue"
 export default {
   data() {
     return {
-      clinicsData:clinics,
-      rootData:root,
+      // clinicsData:clinics,
+      // rootData:root,
 
     };
   },
@@ -41,9 +35,9 @@ export default {
 
   name: "App",
   components: {
-    NestedExample,
-    TabberComponent,
-    DataTable,
+    // NestedExample,
+    // TabberComponent,
+    // DataTable,
     AllTabs,
   },
 };
