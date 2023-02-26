@@ -1,33 +1,32 @@
 <template>
- <!-- <dragcomp 
-     :nodes="rootData"
-      @onClick="nodeWasClicked"></dragcomp> -->
-
-<!-- <NestedDraggable></NestedDraggable> -->
-<nested></nested>
-<NestedExample></NestedExample>
+  <h3>Draggable DataTree</h3>
+  <NestedExample></NestedExample>
+  <h3>Tabber</h3>
+  <TabberComponent></TabberComponent>
+  <h3>DataTable</h3>
+  <DataTable></DataTable>
 </template>
 
 <script>
-// import  dragcomp from './components/Draggable-Component.vue';
+import NestedExample from "./components/NestedExample.vue";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import TabberComponent from "./components/TabberComponent.vue";
+import DataTable from "./components/DataTable.vue";
+import 'vue-good-table-next/dist/vue-good-table-next.css'
 
-// import NestedDraggable from './components/NestedDraggable.vue';
 
-import nested from './components/nested.vue';
-import NestedExample from './components/NestedExample.vue'
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap"
-import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default {
-  data(){return{
-   
-  }},
-  
+  data() {
+    return {};
+  },
+
   watch: {
     root: {
       deep: true,
-      handler:function(newRoot) {
+      handler: function (newRoot) {
         console.log(newRoot);
       },
     },
@@ -37,14 +36,14 @@ export default {
       alert(node.name);
     },
   },
-  
-  name: 'App',
+
+  name: "App",
   components: {
-   nested,NestedExample,
-    // dragcomp,
-// NestedDraggable 
- }
-}
+    NestedExample,
+    TabberComponent,
+    DataTable,
+  },
+};
 </script>
 
 <style>

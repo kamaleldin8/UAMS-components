@@ -1,5 +1,5 @@
 <template>
-    <p  ref="testref">helllo</p>
+    <!-- <p  ref="testref">helllo</p> -->
   <draggable
     class="node"
     tag="ul"
@@ -9,7 +9,8 @@
   >
     <template #item="{ element }">
       <li>
-        <div @click="nodeClicked(element)">
+        <div :id= element.name @click="nodeClicked(element)" class="item-container node_element">
+          <div >
           <span class="pr-5"  >
             <i v-if="isExpanded(element)" class="bi bi-chevron-down">
               <i class="bi bi-folder2-open"></i>
@@ -22,7 +23,22 @@
               <i v-else class="p-1 bi bi-file-text"> </i>
             </span>
           </span>
-          <span class="p-1"  ref="selectedSpan">{{ element.name }}</span>
+          <span class="p-1">{{ element.name }}</span>
+        </div>
+          <div>
+            <button class="icon_button">
+            <i v-if="addable" class="bi bi-plus-lg"></i>
+          </button>
+          <button class="icon_button">
+            <i v-if="viewable" class="bi bi-eye-fill"></i>
+          </button>
+          <button class="icon_button">
+            <i v-if="editable" class="bi bi-pen-fill"></i>
+          </button>
+          <button class="icon_button">
+            <i v-if="deletable" class="bi bi-trash3-fill"></i>
+          </button>
+        </div>
         </div>
         <!-- recursion -->
 
@@ -44,6 +60,10 @@ export default {
   data() {
     return {
       expanded: [],
+      viewable: true,
+      editable: true,
+      addable: true,
+      deletable: true,
     };
   },
   props: {
@@ -57,20 +77,19 @@ export default {
       return this.expanded.indexOf(node) !== -1;
     },
     nodeClicked(node) {
-    //   const selectedItem = this.$refs.selectedSpan.filter(
-    //     (item) => item.innerText === node.name
-    //   );
-
-      console.log( this.$refs);
+    let allElements = document.getElementsByClassName('node_element');
+    for (var i = 0; i < allElements.length; i++) {
+      allElements[i].style.backgroundColor="transparent";
+    }
+    let catched_node = document.getElementById(node.name);
+    catched_node.style.backgroundColor = 'lightgray';
       this.active = true;
 
       if (node.tasks) {
         if (!this.isExpanded(node)) {
-        //   selectedItem[0].style.color = "green";
           this.expanded.push(node);
         } else {
           this.expanded.splice(this.expanded.indexOf(node));
-        //   selectedItem[0].style.color = "";
         }
       }
     },
@@ -107,6 +126,19 @@ li {
 .type {
   margin-right: 10px;
   /* color:blue; */
+}
+
+.icon_button{
+  background-color: transparent;
+  border: none;
+}
+
+.item-container{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  min-width: 30vw;
 }
 </style>
   
