@@ -25,6 +25,9 @@
       },
     },
   },
+  props:[
+    'data',
+  ],
   methods: {
     nodeWasClicked(node) {
       alert(node.name);
@@ -32,47 +35,7 @@
   },
     data() {
       return {
-        list: [
-  {
-    "name": "Admin",
-    "children": [
-      {
-        "name": "People",
-        "children": [
-          {
-            "name": "Providers"
-          },
-          {
-            "name": "Users",
-            "children":[
-              {
-                "name":"Manage Users",
-                "children":[
-                  {"name":"General"},
-                  {"name":"Identity"},
-                  {"name":"Clinic"},
-                  {"name":"SecurityRoles"}
-                ]
-
-              }
-            ]
-          }
-        ]
-      }]
-    },
-    {
-      "name":"Calender", 
-        "children":[
-        {
-          "name":"test file"
-      
-        }
-      ]
-    },
-    {
-      "name":"Requests"
-    }
-  ]
+        list: this.data
       };
     }
   };

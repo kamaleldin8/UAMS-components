@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Northeast Arkansas"
+  },
+  {
+    "name": "Southeast Arkansas"
+  },
+  {
+    "name": "Central Arkansas",
+    "children": [
+      {
+        "name": "Surgery Clinic",
+        "children": [
+          {
+            "name": "Aortic Center"
+          }
+        ]
+      },
+      {
+        "name": " Neighborhood Clinic on Rahling Road",
+        "children": [
+          {
+            "name": " Adult Genetics Clinic on Rahling Road"
+          }
+        ]
+      },
+      {
+        "name": "Family Medical Center in Fayetteville",
+        "children": [
+          {
+            "name": "Adult Genetics Clinic — Northwest"
+          }
+        ]
+      }
+    ]
+  }
+]

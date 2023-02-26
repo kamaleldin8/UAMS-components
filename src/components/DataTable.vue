@@ -1,6 +1,6 @@
 <template>
   <!-- @on-selected-rows-change="selectionChanged" -->
-  <h2>Our Good Table :)</h2>
+  <!-- <h2>Our Good Table :)</h2> -->
   <div>
     <VueGoodTable
       :totalRows="totalRecords"
@@ -26,9 +26,9 @@
       :pagination-options="{
         mode: 'remote',
         enabled: true,
-        perPage: 10,
+        perPage: 5,
         position: 'top',
-        perPageDropdown: [3, 7, 9],
+        perPageDropdown: [10, 50, 100],
       }"
     />
   </div>
