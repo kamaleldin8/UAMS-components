@@ -3,21 +3,21 @@
   <draggable
     class="node"
     tag="ul"
-    :list="tasks"
+    :list="nodes"
     :group="{ name: 'g1' }"
     item-key="name"
   >
     <template #item="{ element }">
       <li>
-        <div :id= element.name @click="nodeClicked(element)" class="item-container node_element">
-          <div >
+        <div :id= element.name  class="item-container node_element">
+          <div @click="nodeClicked(element)">
           <span class="pr-5"  >
             <i v-if="isExpanded(element)" class="bi bi-chevron-down">
               <i class="bi bi-folder2-open"></i>
             </i>
 
             <span v-else>
-              <i v-if="element.tasks" class="bi bi-chevron-right">
+              <i v-if="element.children" class="bi bi-chevron-right">
                 <i class="bi bi-folder"></i>
               </i>
               <i v-else class="p-1 bi bi-file-text"> </i>
@@ -43,9 +43,8 @@
         <!-- recursion -->
 
         <nested-draggable
-          :tasks="element.tasks"
-          v-if="isExpanded(element) && element.tasks"
-          :nodes="element.tasks"
+          v-if="isExpanded(element) && element.children"
+          :nodes="element.children"
           :depth="depth + 1"
           @onClick="(element) => $emit('onClick', element)"
         />
@@ -67,7 +66,7 @@ export default {
     };
   },
   props: {
-    tasks: {
+    nodes: {
       required: true,
       type: Array,
     },
@@ -83,9 +82,11 @@ export default {
     }
     let catched_node = document.getElementById(node.name);
     catched_node.style.backgroundColor = 'lightgray';
-      this.active = true;
+    catched_node.style.cursor = 'pointer';
 
-      if (node.tasks) {
+      // this.active = true;
+
+      if (node.children) {
         if (!this.isExpanded(node)) {
           this.expanded.push(node);
         } else {

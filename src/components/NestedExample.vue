@@ -1,7 +1,7 @@
 <template>
     <div class="row">
       <div class="col-8">
-        <nested :tasks="list" />
+        <nested :nodes="list" />
       </div>
   
       <rawDisplayer class="col-3" :value="list" title="List" />
@@ -17,24 +17,37 @@
     components: {
     nested
     },
+    watch: {
+    root: {
+      deep: true,
+      handler: function (newRoot) {
+        console.log(newRoot);
+      },
+    },
+  },
+  methods: {
+    nodeWasClicked(node) {
+      alert(node.name);
+    },
+  },
     data() {
       return {
         list: [
   {
     "name": "Admin",
-    "tasks": [
+    "children": [
       {
         "name": "People",
-        "tasks": [
+        "children": [
           {
             "name": "Providers"
           },
           {
             "name": "Users",
-            "tasks":[
+            "children":[
               {
                 "name":"Manage Users",
-                "tasks":[
+                "children":[
                   {"name":"General"},
                   {"name":"Identity"},
                   {"name":"Clinic"},
@@ -49,7 +62,7 @@
     },
     {
       "name":"Calender", 
-        "tasks":[
+        "children":[
         {
           "name":"test file"
       

@@ -23,19 +23,7 @@ export default {
     return {};
   },
 
-  watch: {
-    root: {
-      deep: true,
-      handler: function (newRoot) {
-        console.log(newRoot);
-      },
-    },
-  },
-  methods: {
-    nodeWasClicked(node) {
-      alert(node.name);
-    },
-  },
+
 
   name: "App",
   components: {
