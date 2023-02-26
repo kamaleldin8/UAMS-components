@@ -1,5 +1,5 @@
 <template>
-    <!-- <p  ref="testref">helllo</p> -->
+  <!-- <p  ref="testref">helllo</p> -->
   <draggable
     class="node"
     tag="ul"
@@ -9,36 +9,36 @@
   >
     <template #item="{ element }">
       <li>
-        <div :id= element.name  class="item-container node_element">
+        <div :id="element.name" class="item-container node_element">
           <div @click="nodeClicked(element)">
-          <span class="pr-5"  >
-            <i v-if="isExpanded(element)" class="bi bi-chevron-down">
-              <i class="bi bi-folder2-open"></i>
-            </i>
-
-            <span v-else>
-              <i v-if="element.children" class="bi bi-chevron-right">
-                <i class="bi bi-folder"></i>
+            <span class="pr-5">
+              <i v-if="isExpanded(element)" class="bi bi-chevron-down">
+                <i class="bi bi-folder2-open"></i>
               </i>
-              <i v-else class="p-1 bi bi-file-text"> </i>
+
+              <span v-else>
+                <i v-if="element.children" class="bi bi-chevron-right">
+                  <i class="bi bi-folder"></i>
+                </i>
+                <i v-else class="p-1 bi bi-file-text"> </i>
+              </span>
             </span>
-          </span>
-          <span class="p-1">{{ element.name }}</span>
-        </div>
+            <span class="p-1">{{ element.name }}</span>
+          </div>
           <div>
             <button class="icon_button">
-            <i v-if="addable" class="bi bi-plus-lg"></i>
-          </button>
-          <button class="icon_button">
-            <i v-if="viewable" class="bi bi-eye-fill"></i>
-          </button>
-          <button class="icon_button">
-            <i v-if="editable" class="bi bi-pen-fill"></i>
-          </button>
-          <button class="icon_button">
-            <i v-if="deletable" class="bi bi-trash3-fill"></i>
-          </button>
-        </div>
+              <i v-if="addable" class="bi bi-plus-lg"></i>
+            </button>
+            <button class="icon_button">
+              <i v-if="viewable" class="bi bi-eye-fill"></i>
+            </button>
+            <button class="icon_button">
+              <i v-if="editable" class="bi bi-pen-fill"></i>
+            </button>
+            <button class="icon_button">
+              <i v-if="deletable" class="bi bi-trash3-fill"></i>
+            </button>
+          </div>
         </div>
         <!-- recursion -->
 
@@ -52,7 +52,7 @@
     </template>
   </draggable>
 </template>
-  <script>
+<script>
 import draggable from "vuedraggable";
 
 export default {
@@ -76,13 +76,13 @@ export default {
       return this.expanded.indexOf(node) !== -1;
     },
     nodeClicked(node) {
-    let allElements = document.getElementsByClassName('node_element');
-    for (var i = 0; i < allElements.length; i++) {
-      allElements[i].style.backgroundColor="transparent";
-    }
-    let catched_node = document.getElementById(node.name);
-    catched_node.style.backgroundColor = 'lightgray';
-    catched_node.style.cursor = 'pointer';
+      let allElements = document.getElementsByClassName("node_element");
+      for (var i = 0; i < allElements.length; i++) {
+        allElements[i].style.backgroundColor = "transparent";
+      }
+      let catched_node = document.getElementById(node.name);
+      catched_node.style.backgroundColor = "lightgray";
+      catched_node.style.cursor = "pointer";
 
       // this.active = true;
 
@@ -101,7 +101,7 @@ export default {
   name: "nested-draggable",
 };
 </script>
-  <style scoped>
+<style scoped>
 .dragArea {
   min-height: 50px;
   outline: 1px dashed;
@@ -122,19 +122,19 @@ li {
 .node {
   text-align: left;
   font-size: 18px;
+  padding-left: 0;
 }
 
 .type {
   margin-right: 10px;
-  /* color:blue; */
 }
 
-.icon_button{
+.icon_button {
   background-color: transparent;
   border: none;
 }
 
-.item-container{
+.item-container {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -142,4 +142,3 @@ li {
   min-width: 30vw;
 }
 </style>
-  

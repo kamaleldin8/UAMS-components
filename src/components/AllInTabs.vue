@@ -144,6 +144,7 @@
 <script>
 import NestedExample from "./NestedExample.vue";
 import datatable from "./DataTable.vue";
+import clinics from "../clinics.json";
 import root from "@/root.json";
 
 export default {
@@ -249,18 +250,16 @@ a {
   padding: 0.3em 0.4em;
   color: #484848;
 }
-.tabcontent td.dataRoot {
+/* .tabcontent td.dataRoot {
   max-width: 30rem;
   text-align: left;
-}
+} */
 .tabcontent td.legend {
   color: #888;
   font-weight: bold;
   text-align: right;
 }
-ul[data-v-4037d787] {
-  padding-left: 0;
-}
+
 .tabcontent .map {
   height: 173px;
   width: 220px;
