@@ -2,7 +2,6 @@
   <!-- tabbeer -->
   <div>
     <div id="tabs" class="container">
-
       <div class="tabs">
         <a
           v-on:click="activetab = '1'"
@@ -28,15 +27,13 @@
 
       <div class="content">
         <div v-if="activetab === '1'" class="tabcontent d-flex">
-          <div class="me-5">
-          </div>
+          <div class="me-5"></div>
           <div class="ms-5">
             <h5>admin.users</h5>
             <h5>Allowed permission definitions</h5>
 
-            <div class="card " style="width: 18rem">
+            <div class="card" style="width: 18rem">
               <div class="card-body">
-                
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -47,7 +44,6 @@
                   <label class="form-check-label" for="flexCheckDefault">
                     Default checkbox
                   </label>
-
                 </div>
                 <div class="form-check">
                   <input
@@ -56,9 +52,10 @@
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
-
-                </div> 
+                  <label class="form-check-label" for="flexCheckDefault"
+                    >Default checkbox</label
+                  >
+                </div>
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -69,12 +66,7 @@
                   <label class="form-check-label" for="flexCheckDefault">
                     Default checkbox
                   </label>
-
                 </div>
-                
-
-
-                
               </div>
             </div>
           </div>
@@ -199,9 +191,7 @@ import rootData from "@/root.json";
 
 export default {
   name: "TabberComponent",
-  components: { 
-    
-   },
+  components: {},
   data() {
     return {
       root: rootData,
@@ -292,6 +282,7 @@ export default {
 .tabcontent td {
   padding: 0.3em 0.4em;
   color: #484848;
+  max-width: 34em;
 }
 .tabcontent td.legend {
   color: #888;
